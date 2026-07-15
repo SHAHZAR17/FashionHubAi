@@ -1,0 +1,18 @@
+// Member 2 — Order routes
+const express = require("express");
+const router = express.Router();
+const {
+  createOrder,
+  trackOrder,
+  updateOrderStatus,
+  getOrders,
+  getUpsellSuggestions,
+} = require("../controllers/orderController");
+
+router.post("/", createOrder);
+router.get("/", getOrders);
+router.get("/track/:trackingNumber", trackOrder);
+router.put("/:id/status", updateOrderStatus);
+router.get("/:id/upsell", getUpsellSuggestions);
+
+module.exports = router;
